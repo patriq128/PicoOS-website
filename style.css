@@ -225,3 +225,15 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        .ascii{
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .text_window code{
+            background: #000;
+            color: #ff00ff;
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
