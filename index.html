@@ -6,6 +6,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>PicoOS</title>
     <script src="script.js" defer></script>
@@ -17,7 +18,7 @@
             ☰
         </button>
 
-        <div class="nav_link" id="nav_links">
+        <div class="nav_links" id="nav_links">
             <a class="nav_button" href="#home">Home</a>
             <a class="nav_button" href="#what">What is PicoOS</a>
             <a class="nav_button" href="#installation">Installation</a>
@@ -27,53 +28,60 @@
 
     <section id="home">
         <div class="panel">
-            <h1>Welcome to PicoOS</h1>
+            <h1 class="manufacturing-consent-regular">Welcome to PicoOS</h1>
             <h3>Operating system mainly made for Pico devices</h3>
             <a class="nav_button" href="#what">Continue</a>
-
         </div>
     </section>
 
     <section id="what">
         <div class="panel">
-            <h2>What is PicoOS ?</h2>
-            <p>PicoOS is OS specificly made for Raspberry Pi pico borads and procesors</p>
-            <h3>Supported devices and chips:<h3>
-            <p>Raspberry pi Pico</p>
-            <p>Raspberry pi Pico W</p>
-            <p>Raspberry pi Pico 2</p>
-            <p>Raspberry pi Pico 2 W</p>
-            <p>Developer borads with RP2040 or RP2540 Chip</p>
+            <h2>What is PicoOS?</h2>
+            <p>PicoOS is an OS specifically made for Raspberry Pi Pico boards and processors</p>
+            <h3>Supported devices and chips:</h3>
+            <p>Raspberry Pi Pico</p>
+            <p>Raspberry Pi Pico W</p>
+            <p>Raspberry Pi Pico 2</p>
+            <p>Raspberry Pi Pico 2 W</p>
+            <p>Developer boards with an RP2040 or RP2350 chip</p>
+        </div>
     </section>
 
     <section id="installation">
         <div class="panel">
-            <h2>Installaion</h2>
-            <pre style="font-family: monospace; line-height: 1; color:#ff00ff">
-            <span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠊⠉⠐⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⢀⠏⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            </span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⢰⠁⢀⠔⠀⠒⢤⡔⠈⠉⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            </span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⣾⠀⡇⠀⠀⠂⢀⠂⠀⠂⠀⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            </span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⡇⠀⠑⠤⠀⠠⠊⠐⠤⠤⢞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            </span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⣼⠀⠀⠀</span><span style="color:#ffffff;">⣀⣴⣶⣿⣿⣷⣦⡀</span><span style="color:#ff00ff;">⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⡇⠀⠀</span><span style="color:#ffffff;">⣴⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡌⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⢰⠁⠀</span><span style="color:#ffffff;">⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⡾⠀</span><span style="color:#ffffff;">⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇</span><span style="color:#ff00ff;">⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⢠⠇⠀</span><span style="color:#ffffff;">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</span><span style="color:#ff00ff;">⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⢀⡎⠀⠀</span><span style="color:#ffffff;">⠛⠻⠿⠿⠿⠿⠿⣿⣿⠛⠛⠛⠉⠀</span><span style="color:#ff00ff;">⢰⢆⠀⠀⠀⠀⠀⠀⠀⠀
-            </span>⠀⢠⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠈⠻⣆⠀⠀⠀⠀⠀⠀⠀
-            ⢠⠇⠀⠀⠀⣠⠆⠀⠀⠀⠀⢁⣀⡠⢤⣼⣛⣲⣯⣭⣭⣭⠿⣆⠀⠀⠀⠀⠀⠀
-            ⡎⠀⠀⠀⡰⠃⠀⣀⡤⣖⠪⢿⣶⣿⣿⣿⣿⣿⣿⣿⠿⠟⠀⠘⡄⠀⠀⠀⠀⠀
-            ⣇⠀⠀⡼⣁⢴⡪⠗⠉⠀⠀⠀⠻⠟⢋⣿⣿⣿⣿⣿⡆⠀⠀⠀⢳⠀⠀⠀⠀⠀
-            ⠘⢤⣼⣋⠗⠁⠀⠀⠀⠀⠀⠀⠀⣤⣘⣿⣿⡿⣿⣟⣥⠖⠀⠀⢨⣿⣦⣀⠀⠀
-            ⠀⢸⡗⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⢿⡿⠟⠋⠁⠀⠀⠀⡼⠁⠀⠈⠑⢆
-            ⠀⠀⠳⣀⠀⠀⠀⠀⠀⠀⣠⣦⡀⢠⣄⣠⠤⠷⣀⡠⠶⢄⣀⣼⣀⠀⠀⣀⣀⠜
-            ⠀⠀⠀⠈⠉⠒⠤⠄⣀⣰⣿⣿⣷⣿⡟⠁⠀⠀⠈⠱⡄⠀⠀⠀⠉⠉⠉⠁⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠿⠤⢀⣀⣀⣀⡴⠃⠀
-            </pre>
+            <h2>Installation</h2>
+            <div class="text_window">
+                <p>1. Install the PC-side dependencies</p>
+                <p><code>pip install mpremote psutil requests</code></p>
+                <p>2. Connect the Pico to your computer</p>
+                <p>3. Run the installer from the project root</p>
+                <p><code>python installer.py</code></p>
+                <p>4. Follow the prompts to flash MicroPython and copy PicoOS onto the board</p>
+            </div>
+            <pre class="ascii" style="font-family: monospace; line-height: 1; color:#ff00ff"><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠊⠉⠐⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⠏⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⢰⠁⢀⠔⠀⠒⢤⡔⠈⠉⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⣾⠀⡇⠀⠀⠂⢀⠂⠀⠂⠀⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⡇⠀⠑⠤⠀⠠⠊⠐⠤⠤⢞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣼⠀⠀⠀</span><span style="color:#ffffff;">⣀⣴⣶⣿⣿⣷⣦⡀</span><span style="color:#ff00ff;">⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡇⠀⠀</span><span style="color:#ffffff;">⣴⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡌⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢰⠁⠀</span><span style="color:#ffffff;">⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⡾⠀</span><span style="color:#ffffff;">⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇</span><span style="color:#ff00ff;">⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢠⠇⠀</span><span style="color:#ffffff;">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</span><span style="color:#ff00ff;">⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⡎⠀⠀</span><span style="color:#ffffff;">⠛⠻⠿⠿⠿⠿⠿⣿⣿⠛⠛⠛⠉⠀</span><span style="color:#ff00ff;">⢰⢆⠀⠀⠀⠀⠀⠀⠀⠀
+</span>⠀⢠⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠈⠻⣆⠀⠀⠀⠀⠀⠀⠀
+⢠⠇⠀⠀⠀⣠⠆⠀⠀⠀⠀⢁⣀⡠⢤⣼⣛⣲⣯⣭⣭⣭⠿⣆⠀⠀⠀⠀⠀⠀
+⡎⠀⠀⠀⡰⠃⠀⣀⡤⣖⠪⢿⣶⣿⣿⣿⣿⣿⣿⣿⠿⠟⠀⠘⡄⠀⠀⠀⠀⠀
+⣇⠀⠀⡼⣁⢴⡪⠗⠉⠀⠀⠀⠻⠟⢋⣿⣿⣿⣿⣿⡆⠀⠀⠀⢳⠀⠀⠀⠀⠀
+⠘⢤⣼⣋⠗⠁⠀⠀⠀⠀⠀⠀⠀⣤⣘⣿⣿⡿⣿⣟⣥⠖⠀⠀⢨⣿⣦⣀⠀⠀
+⠀⢸⡗⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⢿⡿⠟⠋⠁⠀⠀⠀⡼⠁⠀⠈⠑⢆
+⠀⠀⠳⣀⠀⠀⠀⠀⠀⠀⣠⣦⡀⢠⣄⣠⠤⠷⣀⡠⠶⢄⣀⣼⣀⠀⠀⣀⣀⠜
+⠀⠀⠀⠈⠉⠒⠤⠄⣀⣰⣿⣿⣷⣿⡟⠁⠀⠀⠈⠱⡄⠀⠀⠀⠉⠉⠉⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠿⠤⢀⣀⣀⣀⡴⠃⠀</pre>
         </div>
     </section>
 </body>
+</html>
