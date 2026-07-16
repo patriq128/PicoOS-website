@@ -3,46 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PicoOS — a terminal shell OS for the Raspberry Pi Pico, written in MicroPython.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>PicoOS</title>
     <script src="script.js" defer></script>
 </head>
 <body>
     <div class="nav">
-        <button class="hamburger" id="hamburger">☰</button>
+        <a class="nav_logo" href="#home"><span class="prompt">~/</span>PicoOS</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">☰</button>
 
         <div class="nav_links" id="nav_links">
-            <a class="nav_button" href="#home">Home</a>
-            <a class="nav_button" href="#what">What is PicoOS</a>
-            <a class="nav_button" href="#features">Features</a>
-            <a class="nav_button" href="#installation">Installation</a>
+            <a class="nav_button" href="#home">home</a>
+            <a class="nav_button" href="#what">what-is-picoos</a>
+            <a class="nav_button" href="#features">features</a>
+            <a class="nav_button" href="#installation">installation</a>
         </div>
 
-        <a class="button" href="https://github.com/patriq128/PicoOS" target="_blank">Github</a>
+        <a class="button" href="https://github.com/patriq128/PicoOS" target="_blank" rel="noopener">github</a>
     </div>
 
     <section id="home">
         <div class="panel">
-            <h1 class="manufacturing-consent-regular">Welcome to PicoOS</h1>
-            <h3>A terminal shell OS for the Raspberry Pi Pico, written in MicroPython</h3>
+            <p class="eyebrow">rp2040 / rp2350 &middot; micropython</p>
+            <h1>PicoOS</h1>
+            <h3>A terminal shell OS for the Raspberry Pi Pico, written in MicroPython.</h3>
+
             <pre class="ascii"><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠊⠉⠐⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢀⠏⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⢰⠁⢀⠔⠀⠒⢤⡔⠈⠉⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⣾⠀⡇⠀⠀⠂⢀⠂⠀⠂⠀⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#ffffff;">⡇⠀⠑⠤⠀⠠⠊⠐⠤⠤⢞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#d9d6cc;">⢰⠁⢀⠔⠀⠒⢤⡔⠈⠉⠢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#d9d6cc;">⣾⠀⡇⠀⠀⠂⢀⠂⠀⠂⠀⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀</span><span style="color:#d9d6cc;">⡇⠀⠑⠤⠀⠠⠊⠐⠤⠤⢞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 </span><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣼⠀⠀⠀</span><span style="color:#ffffff;">⣀⣴⣶⣿⣿⣷⣦⡀</span><span style="color:#ff00ff;">⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⡇⠀⠀</span><span style="color:#ffffff;">⣴⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡌⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢰⠁⠀</span><span style="color:#ffffff;">⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⡾⠀</span><span style="color:#ffffff;">⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇</span><span style="color:#ff00ff;">⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢠⠇⠀</span><span style="color:#ffffff;">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</span><span style="color:#ff00ff;">⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢀⡎⠀⠀</span><span style="color:#ffffff;">⠛⠻⠿⠿⠿⠿⠿⣿⣿⠛⠛⠛⠉⠀</span><span style="color:#ff00ff;">⢰⢆⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⣼⠀⠀⠀</span><span style="color:#d9d6cc;">⣀⣴⣶⣿⣿⣷⣦⡀</span><span style="color:#ff00ff;">⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡇⠀⠀</span><span style="color:#d9d6cc;">⣴⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡌⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢰⠁⠀</span><span style="color:#d9d6cc;">⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷</span><span style="color:#ff00ff;">⡸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⡾⠀</span><span style="color:#d9d6cc;">⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇</span><span style="color:#ff00ff;">⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢠⠇⠀</span><span style="color:#d9d6cc;">⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</span><span style="color:#ff00ff;">⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢀⡎⠀⠀</span><span style="color:#d9d6cc;">⠛⠻⠿⠿⠿⠿⠿⣿⣿⠛⠛⠛⠉⠀</span><span style="color:#ff00ff;">⢰⢆⠀⠀⠀⠀⠀⠀⠀⠀
 </span>⠀⢠⠏⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠈⠻⣆⠀⠀⠀⠀⠀⠀⠀
 ⢠⠇⠀⠀⠀⣠⠆⠀⠀⠀⠀⢁⣀⡠⢤⣼⣛⣲⣯⣭⣭⣭⠿⣆⠀⠀⠀⠀⠀⠀
 ⡎⠀⠀⠀⡰⠃⠀⣀⡤⣖⠪⢿⣶⣿⣿⣿⣿⣿⣿⣿⠿⠟⠀⠘⡄⠀⠀⠀⠀⠀
@@ -52,46 +57,82 @@
 ⠀⠀⠳⣀⠀⠀⠀⠀⠀⠀⣠⣦⡀⢠⣄⣠⠤⠷⣀⡠⠶⢄⣀⣼⣀⠀⠀⣀⣀⠜
 ⠀⠀⠀⠈⠉⠒⠤⠄⣀⣰⣿⣿⣷⣿⡟⠁⠀⠀⠈⠱⡄⠀⠀⠀⠉⠉⠉⠁⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠿⠤⢀⣀⣀⣀⡴⠃⠀</pre>
-            <a class="nav_button" href="#what">Continue</a>
+
+            <a class="nav_button" href="#what" style="border:1px solid var(--border);">continue</a>
         </div>
     </section>
 
     <section id="what">
         <div class="panel">
-            <h2>What is PicoOS?</h2>
-            <p>PicoOS is an OS specifically made for Raspberry Pi Pico boards and processors</p>
-            <h3>Supported devices and chips:</h3>
-            <p>Raspberry Pi Pico</p>
-            <p>Raspberry Pi Pico W</p>
-            <p>Raspberry Pi Pico 2</p>
-            <p>Raspberry Pi Pico 2 W</p>
-            <p>Developer boards with an RP2040 or RP2350 chip</p>
+            <h2><span class="prompt">$</span> cat readme.md</h2>
+
+            <div class="term">
+                <div class="term_bar">
+                    <span class="term_dot"></span><span class="term_dot"></span><span class="term_dot"></span>
+                    <span class="path">readme.md</span>
+                </div>
+                <div class="term_body">
+                    <p>PicoOS is an operating system built specifically for Raspberry Pi Pico boards and RP2040 / RP2350-based hardware.</p>
+                    <p style="color:var(--text-dim); font-size:13px; margin-top:16px;">supported devices:</p>
+                    <ul>
+                        <li>Raspberry Pi Pico</li>
+                        <li>Raspberry Pi Pico W</li>
+                        <li>Raspberry Pi Pico 2</li>
+                        <li>Raspberry Pi Pico 2 W</li>
+                        <li>Developer boards with an RP2040 or RP2350 chip</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="features">
         <div class="panel">
-            <h2>Features</h2>
-            <div class="features">
-                <div>
-                    <h3>Shell</h3>
-                    <p>Boots straight into a command shell instead of the raw MicroPython REPL — ls, cd, cat, mkdir, mv, mount, and a handful of system commands.</p>
+            <h2><span class="prompt">$</span> ls features/</h2>
+
+            <div class="term">
+                <div class="term_bar">
+                    <span class="term_dot"></span><span class="term_dot"></span><span class="term_dot"></span>
+                    <span class="path">features/</span>
                 </div>
-                <div>
-                    <h3>Apps</h3>
-                    <p>Apps are just .py files with an install() and main(path) function. Anything the shell doesn't recognize as built-in gets looked up in /apps.</p>
-                </div>
-                <div>
-                    <h3>Config</h3>
-                    <p>Status light, SD card pins, and the app registry are stored as JSON under /conf. Missing files regenerate with sane defaults instead of crashing.</p>
-                </div>
-                <div>
-                    <h3>Error logging</h3>
-                    <p>Failures get logged to the SD card if one's mounted, or to internal flash if not.</p>
-                </div>
-                <div>
-                    <h3>Installer</h3>
-                    <p>One command on your computer flashes MicroPython, copies the whole project over mpremote, and walks you through configuration.</p>
+                <div class="term_body">
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature_index">01</span>
+                            <div>
+                                <h3>Shell</h3>
+                                <p>Boots straight into a command shell instead of the raw MicroPython REPL — ls, cd, cat, mkdir, mv, mount, and a handful of system commands.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature_index">02</span>
+                            <div>
+                                <h3>Apps</h3>
+                                <p>Apps are just .py files with an install() and main(path) function. Anything the shell doesn't recognize as built-in gets looked up in /apps.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature_index">03</span>
+                            <div>
+                                <h3>Config</h3>
+                                <p>Status light, SD card pins, and the app registry are stored as JSON under /conf. Missing files regenerate with sane defaults instead of crashing.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature_index">04</span>
+                            <div>
+                                <h3>Error logging</h3>
+                                <p>Failures get logged to the SD card if one's mounted, or to internal flash if not.</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <span class="feature_index">05</span>
+                            <div>
+                                <h3>Installer</h3>
+                                <p>One command on your computer flashes MicroPython, copies the whole project over mpremote, and walks you through configuration.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,14 +140,33 @@
 
     <section id="installation">
         <div class="panel">
-            <h2>Installation</h2>
-            <div class="text_window">
-                <p>1. Install the PC-side dependencies</p>
-                <p><code>pip install mpremote psutil requests</code></p>
-                <p>2. Connect the Pico to your computer</p>
-                <p>3. Run the installer from the project root</p>
-                <p><code>python installer.py</code></p>
-                <p>4. Follow the prompts to flash MicroPython and copy PicoOS onto the board</p>
+            <h2><span class="prompt">$</span> ./install.sh</h2>
+
+            <div class="term">
+                <div class="term_bar">
+                    <span class="term_dot"></span><span class="term_dot"></span><span class="term_dot"></span>
+                    <span class="path">install.sh</span>
+                </div>
+                <div class="term_body">
+                    <div class="step">
+                        <div class="step_label"><span class="n">01</span> clone the repository</div>
+                        <span class="line cmd"><span class="prompt">$</span> git clone https://github.com/patriq128/PicoOS.git</span>
+                    </div>
+                    <div class="step">
+                        <div class="step_label"><span class="n">02</span> install the PC-side dependencies</div>
+                        <span class="line cmd"><span class="prompt">$</span> pip install mpremote psutil requests</span>
+                    </div>
+                    <div class="step">
+                        <div class="step_label"><span class="n">03</span> run the installer from the project root</div>
+                        <span class="line cmd"><span class="prompt">$</span> python installer.py</span>
+                    </div>
+                    <div class="step">
+                        <div class="step_label"><span class="n">04</span> follow the prompts to flash MicroPython and copy PicoOS onto the board</div>
+                        <span class="line"><span class="ok">✓</span> ready</span>
+                    </div>
+
+                    <p class="note"><strong>Note:</strong> on Linux, install the packages and run the installer with <code>sudo</code>.</p>
+                </div>
             </div>
         </div>
     </section>
