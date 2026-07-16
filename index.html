@@ -10,55 +10,26 @@
     <link rel="stylesheet" href="style.css">
     <title>PicoOS</title>
     <script src="script.js" defer></script>
-
 </head>
 <body>
     <div class="nav">
-        <button class="hamburger" id="hamburger">
-            ☰
-        </button>
+        <button class="hamburger" id="hamburger">☰</button>
 
         <div class="nav_links" id="nav_links">
             <a class="nav_button" href="#home">Home</a>
             <a class="nav_button" href="#what">What is PicoOS</a>
+            <a class="nav_button" href="#features">Features</a>
             <a class="nav_button" href="#installation">Installation</a>
         </div>
+
         <a class="button" href="https://github.com/patriq128/PicoOS" target="_blank">Github</a>
     </div>
 
     <section id="home">
         <div class="panel">
             <h1 class="manufacturing-consent-regular">Welcome to PicoOS</h1>
-            <h3>Operating system mainly made for Pico devices</h3>
-            <a class="nav_button" href="#what">Continue</a>
-        </div>
-    </section>
-
-    <section id="what">
-        <div class="panel">
-            <h2>What is PicoOS?</h2>
-            <p>PicoOS is an OS specifically made for Raspberry Pi Pico boards and processors</p>
-            <h3>Supported devices and chips:</h3>
-            <p>Raspberry Pi Pico</p>
-            <p>Raspberry Pi Pico W</p>
-            <p>Raspberry Pi Pico 2</p>
-            <p>Raspberry Pi Pico 2 W</p>
-            <p>Developer boards with an RP2040 or RP2350 chip</p>
-        </div>
-    </section>
-
-    <section id="installation">
-        <div class="panel">
-            <h2>Installation</h2>
-            <div class="text_window">
-                <p>1. Install the PC-side dependencies</p>
-                <p><code>pip install mpremote psutil requests</code></p>
-                <p>2. Connect the Pico to your computer</p>
-                <p>3. Run the installer from the project root</p>
-                <p><code>python installer.py</code></p>
-                <p>4. Follow the prompts to flash MicroPython and copy PicoOS onto the board</p>
-            </div>
-            <pre class="ascii" style="font-family: monospace; line-height: 1; color:#ff00ff"><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠊⠉⠐⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            <h3>A terminal shell OS for the Raspberry Pi Pico, written in MicroPython</h3>
+            <pre class="ascii"><span style="color:#ff00ff;">⠀⠀⠀⠀⠀⠀⠀⠀⢀⠔⠊⠉⠐⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⢀⠏⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -81,6 +52,62 @@
 ⠀⠀⠳⣀⠀⠀⠀⠀⠀⠀⣠⣦⡀⢠⣄⣠⠤⠷⣀⡠⠶⢄⣀⣼⣀⠀⠀⣀⣀⠜
 ⠀⠀⠀⠈⠉⠒⠤⠄⣀⣰⣿⣿⣷⣿⡟⠁⠀⠀⠈⠱⡄⠀⠀⠀⠉⠉⠉⠁⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠿⠤⢀⣀⣀⣀⡴⠃⠀</pre>
+            <a class="nav_button" href="#what">Continue</a>
+        </div>
+    </section>
+
+    <section id="what">
+        <div class="panel">
+            <h2>What is PicoOS?</h2>
+            <p>PicoOS is an OS specifically made for Raspberry Pi Pico boards and processors</p>
+            <h3>Supported devices and chips:</h3>
+            <p>Raspberry Pi Pico</p>
+            <p>Raspberry Pi Pico W</p>
+            <p>Raspberry Pi Pico 2</p>
+            <p>Raspberry Pi Pico 2 W</p>
+            <p>Developer boards with an RP2040 or RP2350 chip</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="panel">
+            <h2>Features</h2>
+            <div class="features">
+                <div>
+                    <h3>Shell</h3>
+                    <p>Boots straight into a command shell instead of the raw MicroPython REPL — ls, cd, cat, mkdir, mv, mount, and a handful of system commands.</p>
+                </div>
+                <div>
+                    <h3>Apps</h3>
+                    <p>Apps are just .py files with an install() and main(path) function. Anything the shell doesn't recognize as built-in gets looked up in /apps.</p>
+                </div>
+                <div>
+                    <h3>Config</h3>
+                    <p>Status light, SD card pins, and the app registry are stored as JSON under /conf. Missing files regenerate with sane defaults instead of crashing.</p>
+                </div>
+                <div>
+                    <h3>Error logging</h3>
+                    <p>Failures get logged to the SD card if one's mounted, or to internal flash if not.</p>
+                </div>
+                <div>
+                    <h3>Installer</h3>
+                    <p>One command on your computer flashes MicroPython, copies the whole project over mpremote, and walks you through configuration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation">
+        <div class="panel">
+            <h2>Installation</h2>
+            <div class="text_window">
+                <p>1. Install the PC-side dependencies</p>
+                <p><code>pip install mpremote psutil requests</code></p>
+                <p>2. Connect the Pico to your computer</p>
+                <p>3. Run the installer from the project root</p>
+                <p><code>python installer.py</code></p>
+                <p>4. Follow the prompts to flash MicroPython and copy PicoOS onto the board</p>
+            </div>
         </div>
     </section>
 </body>
