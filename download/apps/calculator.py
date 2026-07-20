@@ -5,5 +5,5 @@ def install():
         "author": "ZiDi"
     }
 
-def main()
+def main():
     print("test chill")
