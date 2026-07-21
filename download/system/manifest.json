@@ -9,11 +9,11 @@
     "drivers/sdcard.py": "55cac2610064374d2d4feb219727b26ad0117797dc3b62b5ca1d2f8977fdebe8",
     "drivers/led.py": "5d200b3dc0fd8263729dfe700e9b9123bb38c9f125fec6ff0c63f82be38d508a",
     "drivers/sdcard_driver.py": "3c83495078235a72e4b7691a815276fa1e49e6537418283aa51955446c32d86f",
-    "kernel/boot.py": "03cac6172d782d025ec2157d6384cab5dd7d8e42c5f37bbcc98e9b445ec667fb",
+    "kernel/boot.py": "bc912c07d1f72704e781cb5186c47f6c0d131ba728c9c93f571073cfd8b59615",
     "kernel/debug.py": "5730dbe3c3ca3734e52fdd21ebfe640cb4ffa19b38006572922445e8a8229628",
     "kernel/colors.py": "450aa1b7f37407257c2b11fc986cf2d44bd372df948b47b56fa28b58162140bb",
     "kernel/system.py": "94aa71d8bf825b8ed708c5ee4da20006ea314a4b7af8ccca19e6ff6863e6d228",
     "kernel/config.py": "10467814733d2b33242223407c494a539c0452680a078453294c549315f778bd",
     "shell/commands.py": "49fee0b043ed30752218c858959f127b2a508ec82fa074bd1b42e4d7af1e9084",
-    "shell/terminal.py": "261b4e0122ca68e18a2e6b599d3abb12f8612d5df2d8d32233d0c551729eb59a"
+    "shell/terminal.py": "d09a7a4c2d8c6ebf3a5bbf9d37e3458fbe5e1d2984b8a62e650cb0bd3c35970d"
 }
