@@ -30,49 +30,43 @@ class Apps:
 
 apps = Apps()
 
-BASE_URL = "https://picoos.dev/downloads/system/"
+def update():
+    update = []
+    manifest = urequests.get("https://picoos.dev/download/system/manifest.json")
+    data = manifest.json()
 
+    def hash_count(path):
+        h = hashlib.sha256()
 
-def get_hash(path):
-    try:
         with open(path, "rb") as f:
-            data = f.read()
+            while True:
+                chunk = f.read(512)
+                if not chunk:
+                    break
+                h.update(chunk)
 
-        return hashlib.sha256(data).hexdigest()
-
-    except:
-        return None
+        return ''.join('{:02x}'.format(b) for b in h.digest())
 
 
-def download_file(path):
-    url = BASE_URL + path
-    print("Downloading:", path)
-    r = urequests.get(url)
-    if r.status_code == 200:
-        folder = path.rsplit("/", 1)[0]
+    for file in data.keys():
+        print(file)
 
         try:
-            os.mkdir(folder)
-        except:
-            pass
+            current_hash = hash_count("/" + file)
 
-        with open("/" + path, "wb") as f:
-            f.write(r.content)
+            if current_hash != data[file]:
+                update.append(file)
 
-        print("Updated:", path)
-    else:
-        print("Failed:", path)
-    r.close()
+        except OSError:
+            print("Missing file:", file)
 
-def update():
-    print("Checking updates...")
-    r = urequests.get(BASE_URL + "manifest.json")
-    manifest = r.json()
-    r.close()
-    for file, remote_hash in manifest.items():
-        local_hash = get_hash("/" + file)
-        if local_hash != remote_hash:
-            print("Change detected:", file)
-            download_file(file)
-        else:
-            print("OK:", file)
+    print("Files to update / install:")
+    for code in update:
+        print(code)
+    respond = input("Continue ? [Y/n]: ")
+    if respond == "y":
+        for code in update:
+            get_file = urequests.get(f"https://picoos.dev/download/system/{code}")
+            data = get_file.text
+            with open(f"/{code}", "w") as f:
+                f.write(data)
