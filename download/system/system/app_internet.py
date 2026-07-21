@@ -72,3 +72,4 @@ def update():
                     f.write(data)
     else:
         print("There is nothing to do")
+        print("Everything is upadted :3")
