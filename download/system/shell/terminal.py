@@ -8,7 +8,7 @@ import os
 from system.apps import apps
 from kernel.colors import colors
 
-from shell.commands import echo, hello, clean, exit, cd, python, mkdir, ls, rm, cat, touch, mv, python
+from shell.commands import echo, hello, clean, exit, cd, python, mkdir, ls, rm, cat, touch, mv, python, restart
 from drivers.sdcard_driver import mount, unmount
 from kernel.config import enable, disable
 from system.apps import install
@@ -40,7 +40,8 @@ def command_list():
         "wifi": wifi_driver,
         "ping": ping,
         "app_install": apps_internet.install,
-        "update": update
+        "update": update,
+        "restart": restart
     }
 
 def terminal():
