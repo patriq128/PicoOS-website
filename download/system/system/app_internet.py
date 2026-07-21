@@ -49,7 +49,6 @@ def update():
 
 
     for file in data.keys():
-        print(file)
 
         try:
             current_hash = hash_count("/" + file)
@@ -60,13 +59,14 @@ def update():
         except OSError:
             print("Missing file:", file)
 
-    print("Files to update / install:")
-    for code in update:
-        print(code)
-    respond = input("Continue ? [Y/n]: ")
-    if respond == "y":
+    if update:
+        print("Files to update / install:")
         for code in update:
-            get_file = urequests.get(f"https://picoos.dev/download/system/{code}")
-            data = get_file.text
-            with open(f"/{code}", "w") as f:
-                f.write(data)
+            print(code)
+        respond = input("Continue ? [Y/n]: ")
+        if respond == "y":
+            for code in update:
+                get_file = urequests.get(f"https://picoos.dev/download/system/{code}")
+                data = get_file.text
+                with open(f"/{code}", "w") as f:
+                    f.write(data)
