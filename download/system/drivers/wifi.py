@@ -39,58 +39,49 @@ class Saving:
 saving = Saving()
 
 def auto_connect():
-    data = saving.load()
+    try:
+        data = saving.load()
 
-    if not data:
-        load_output("false", "WiFi", "necesery", "No WiFi config")
-        return
-
-    networks = wlan.scan()
-
-    available = []
-
-    for wifi in data:
-        for network in networks:
-            ssid = network[0].decode()
-
-            if ssid == wifi["SSID"]:
-                available.append({
-                    "SSID": wifi["SSID"],
-                    "PASSWORD": wifi["PASSWORD"],
-                    "RSSI": network[3]
-                })
-
-    if not available:
-        load_output("false", "WiFi", "necesery", "No saved WiFi found")
-        return
-
-    available.sort(key=lambda x: x["RSSI"], reverse=True)
-
-    for wifi in available:
-        load_output(
-            "info",
-            "WiFi",
-            "necesery",
-            "Trying " + wifi["SSID"] + " (" + str(wifi["RSSI"]) + "dBm)"
-        )
-
-        wlan.connect(wifi["SSID"], wifi["PASSWORD"])
-
-        timeout = 10
-        while not wlan.isconnected() and timeout > 0:
-            time.sleep(1)
-            timeout -= 1
-
-        if wlan.isconnected():
-            load_output(
-                "ok",
-                "WiFi",
-                "necesery",
-                "Connected to " + wifi["SSID"]
-            )
+        if not data:
+            load_output("false", "WiFi", "necesery", "No WiFi config")
             return
 
-    load_output("false", "WiFi", "necesery", "Fail to connect")
+        networks = wlan.scan()
+
+        available = []
+
+        for wifi in data:
+            for network in networks:
+                ssid = network[0].decode()
+
+                if ssid == wifi["SSID"]:
+                    available.append({
+                        "SSID": wifi["SSID"],
+                        "PASSWORD": wifi["PASSWORD"],
+                        "RSSI": network[3]
+                    })
+
+        if not available:
+            load_output("false", "WiFi", "necesery", "No saved WiFi found")
+            return
+
+        available.sort(key=lambda x: x["RSSI"], reverse=True)
+
+        for wifi in available:
+            wlan.connect(wifi["SSID"], wifi["PASSWORD"])
+
+            timeout = 10
+            while not wlan.isconnected() and timeout > 0:
+                time.sleep(1)
+                timeout -= 1
+
+            if wlan.isconnected():
+                load_output("ok", "WiFi", "necesery", "Connected to " + wifi["SSID"])
+                return
+
+        load_output("false", "WiFi", "necesery", "Fail to connect")
+    except:
+        load_output("false", "WiFi", "necesery", "Something is wrong")
 
 def wifi_driver(command):
     if command == "connect":
