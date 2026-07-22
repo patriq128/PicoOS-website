@@ -64,25 +64,25 @@ def apps(command, app):
                     with open(f"/apps/{app}.py", "w") as f:
                         f.write(data)
                     get_file.close()
-        else:
-            print(f"Installing \033[32m{app}\033[0m")
-            get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
-            data = get_file.text
-            with open(f"/apps/{app}.py", "w") as f:
-                f.write(data)
-            get_file.close()
-            sys.path.append("/apps")
+            else:
+                print(f"Installing \033[32m{app}\033[0m")
+                get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
+                data = get_file.text
+                with open(f"/apps/{app}.py", "w") as f:
+                    f.write(data)
+                get_file.close()
+                sys.path.append("/apps")
 
-            module = __import__(app)
-            info = module.install()
+                module = __import__(app)
+                info = module.install()
 
-            data = {
-                info["name"]: {
-                    "Version": info["version"],
-                    "Autor": info["autor"]
+                data = {
+                    info["name"]: {
+                        "Version": info["version"],
+                        "Autor": info["autor"]
+                    }
                 }
-            }
-            apps_saving.save(data)
+                apps_saving.save(data)
         manifest.close()
 
 def update():
