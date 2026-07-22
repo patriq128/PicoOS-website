@@ -6,6 +6,8 @@ from system.apps import install
 import ujson
 import hashlib
 import os
+import sys
+from system.apps import apps as apps_saving
 
 def hash_count(path):
     h = hashlib.sha256()
@@ -42,6 +44,7 @@ def apps(command, app):
         else:
             print(f"App {app} not installed.")
         manifest.close()
+
     elif command == "install":
         manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
         data = manifest.json()
@@ -68,6 +71,18 @@ def apps(command, app):
             with open(f"/apps/{app}.py", "w") as f:
                 f.write(data)
             get_file.close()
+            sys.path.append("/apps")
+
+            module = __import__(app)
+            info = module.install()
+
+            data = {
+                info["name"]: {
+                    "Version": info["version"],
+                    "Autor": info["autor"]
+                }
+            }
+            apps_saving.save(data)
         manifest.close()
 
 def update():
