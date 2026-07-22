@@ -7,7 +7,7 @@
     "apps/nano.py": "2c39deaeaa066f0b273efc341cc5e14082d9b1532cc7e3fbaf9adee2a999fa1c",
     "drivers/wifi.py": "7ba2b74c10f608f6e4e91780ca2cbaee5378f03925124cfcdf0995d8dcdd33f7",
     "drivers/sdcard.py": "55cac2610064374d2d4feb219727b26ad0117797dc3b62b5ca1d2f8977fdebe8",
-    "drivers/led.py": "5d200b3dc0fd8263729dfe700e9b9123bb38c9f125fec6ff0c63f82be38d508a",
+    "drivers/led.py": "90c5290799bd02448f1c183023776f4aaf5c4370f098831e6067f52206986878",
     "drivers/sdcard_driver.py": "3c83495078235a72e4b7691a815276fa1e49e6537418283aa51955446c32d86f",
     "kernel/boot.py": "bc912c07d1f72704e781cb5186c47f6c0d131ba728c9c93f571073cfd8b59615",
     "kernel/debug.py": "5730dbe3c3ca3734e52fdd21ebfe640cb4ffa19b38006572922445e8a8229628",

@@ -38,7 +38,7 @@ def debugging_light(state):
         elif data["Type"] == "Neopixel":
             import neopixel
 
-            pin = machine.Pin(int(data["Pin"]), machine.Pin.OUT)
+            pin = machine.Pin(data["Pin"], machine.Pin.OUT)
 
             np = neopixel.NeoPixel(pin, 1)
 
