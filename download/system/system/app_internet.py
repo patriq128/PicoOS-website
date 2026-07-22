@@ -62,14 +62,16 @@ def update():
     if update:
         print("Files to update / install:")
         for code in update:
-            print(code)
-        respond = input("Continue ? [Y/n]: ")
+            print("\033[32m", code)
+        respond = input("\033[0mContinue ? [Y/n]: \033[0m")
         if respond == "y":
             for code in update:
+                print(f"Downloading\033[32m {code}\033[0m")
                 get_file = urequests.get(f"https://picoos.dev/download/system/{code}")
                 data = get_file.text
                 with open(f"/{code}", "w") as f:
                     f.write(data)
+            print("\033[32m Done :)\033[0m")
     else:
         print("There is nothing to do")
         print("Everything is upadted :3")

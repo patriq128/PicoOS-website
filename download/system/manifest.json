@@ -2,7 +2,7 @@
     "main.py": "d2fcfe245fcbf11e1b1df901a1403d0b8fe8a5e58a8290f9fe62fab1743ee927",
     "system/trun.py": "7898f8b377b5a9117fb7bb0b809fac4609a6df4b2f0af1ae194d689a306b0bab",
     "system/make_directory.py": "5df54379d9ac206707b81b0152c55ab0a833eb6c6576803965cd54bed995266d",
-    "system/app_internet.py": "3bd3c0efa6f3312372ac0cfc00bed6b0a283612530425e3e0a24d49ad7c9b83f",
+    "system/app_internet.py": "e482bbd8f154f51d287da29d563b834cbf976bb181fad33bd33ce07e90d07ffa",
     "system/apps.py": "9c46effec1cd81a375782f060871130671cca6c67f35800f72a3de2f0003fd5d",
     "apps/nano.py": "2c39deaeaa066f0b273efc341cc5e14082d9b1532cc7e3fbaf9adee2a999fa1c",
     "drivers/wifi.py": "7ba2b74c10f608f6e4e91780ca2cbaee5378f03925124cfcdf0995d8dcdd33f7",
