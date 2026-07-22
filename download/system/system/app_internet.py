@@ -36,11 +36,12 @@ def apps(command, app):
                 data = get_file.text
                 with open(f"/apps/{app}.py", "w") as f:
                     f.write(data)
+                get_file.close()
             else:
                 print("App already updated")
         else:
             print(f"App {app} not installed.")
-
+        manifest.close()
     elif command == "install":
         manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
         data = manifest.json()
@@ -59,13 +60,15 @@ def apps(command, app):
                     data = get_file.text
                     with open(f"/apps/{app}.py", "w") as f:
                         f.write(data)
+                    get_file.close()
         else:
             print(f"Installing \033[32m{app}\033[0m")
             get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
             data = get_file.text
             with open(f"/apps/{app}.py", "w") as f:
                 f.write(data)
-
+            get_file.close()
+        manifest.close()
 
 def update():
     update = []
