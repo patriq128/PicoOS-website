@@ -5,7 +5,7 @@
     "system/app_internet.py": "c600a61b71efeb69ae3d83c5f7c530edf3082fc69edd0c69c344138bb3405261",
     "system/apps.py": "9c46effec1cd81a375782f060871130671cca6c67f35800f72a3de2f0003fd5d",
     "apps/nano.py": "2c39deaeaa066f0b273efc341cc5e14082d9b1532cc7e3fbaf9adee2a999fa1c",
-    "drivers/wifi.py": "7ba2b74c10f608f6e4e91780ca2cbaee5378f03925124cfcdf0995d8dcdd33f7",
+    "drivers/wifi.py": "46a72f353f5ec3f562baaa48c4baee530ad4cf2025fb1453f4d7366b456444f7",
     "drivers/sdcard.py": "55cac2610064374d2d4feb219727b26ad0117797dc3b62b5ca1d2f8977fdebe8",
     "drivers/led.py": "7db53b924007c64c22c89c1835ca6bef46de458cd7823284e94ad46bf04e6461",
     "drivers/sdcard_driver.py": "3c83495078235a72e4b7691a815276fa1e49e6537418283aa51955446c32d86f",
