@@ -36,8 +36,10 @@ def load_output(state, packate, type_of, text):
 
     if type_of == "necesery" or data["debugging"] == "enable":
         if state == "ok":
-            state_done = "\033[32m OK"
+            state_done = " \033[32m OK "
         elif state == "false":
             state_done = "\033[31m FAIL"
-
+        elif state == "info":
+            state_done = "\033[90m INFO"
+            
         print("\033[0m[  " + state_done + "\033[0m  ]" + "\033[32m" + packate + ":\033[0m " + text)
