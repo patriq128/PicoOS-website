@@ -1,3 +1,6 @@
+# FIXME:
+# - Repair the sd card shit
+
 from kernel.config import conf, enable
 
 # This is Debugging function and it can save the error messages
