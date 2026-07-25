@@ -4,7 +4,7 @@
     "system/make_directory.py": "5df54379d9ac206707b81b0152c55ab0a833eb6c6576803965cd54bed995266d",
     "system/app_internet.py": "c600a61b71efeb69ae3d83c5f7c530edf3082fc69edd0c69c344138bb3405261",
     "system/apps.py": "9c46effec1cd81a375782f060871130671cca6c67f35800f72a3de2f0003fd5d",
-    "apps/pcs_opener.py": "8101045d2385dac34a76766f94c8bc73176fd9333de426e3c8daabd5c93e921e",
+    "apps/image.py": "a3c9734d629c4b722ecafa3adfadee299851f9000a7460ff726d125973ad2146",
     "apps/nano.py": "2c39deaeaa066f0b273efc341cc5e14082d9b1532cc7e3fbaf9adee2a999fa1c",
     "drivers/wifi.py": "46a72f353f5ec3f562baaa48c4baee530ad4cf2025fb1453f4d7366b456444f7",
     "drivers/sdcard.py": "55cac2610064374d2d4feb219727b26ad0117797dc3b62b5ca1d2f8977fdebe8",
@@ -16,5 +16,5 @@
     "kernel/system.py": "94aa71d8bf825b8ed708c5ee4da20006ea314a4b7af8ccca19e6ff6863e6d228",
     "kernel/config.py": "10467814733d2b33242223407c494a539c0452680a078453294c549315f778bd",
     "shell/commands.py": "fe08ffcfcbd3718d07cfaf876006d81617c33e757d89885597ade26de5cd1887",
-    "shell/terminal.py": "456c2a0aa54a7e5678720389461427489a34332b615cca0e99fe85bcb086799f"
+    "shell/terminal.py": "f54f1b20785f1f5708bbebb17dd7467779f08875fc5667f7e9468c7590f52441"
 }

@@ -61,6 +61,7 @@ def command_list():
             "cd": cd,
             "python": python,
             "mkdir": mkdir,
+            "pwd": pwd,
             "ls": ls,
             "rm": rm,
             "cat": cat,
