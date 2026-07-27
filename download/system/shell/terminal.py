@@ -80,7 +80,7 @@ def command_list():
 def terminal():
     commands = command_list()
     while True:
-        command = input(os.getcwd() + "\033[32m >> \033[0m")
+        command = input("\033[0m" + os.getcwd() + "\033[32m >> \033[0m")
         part = command.split()
         if not part:
             continue

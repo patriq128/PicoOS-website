@@ -1,13 +1,14 @@
 # FIXME
 # - Installing error
 
-import urequests
+import urequests #type: ignore
 from system.apps import install
-import ujson
+import ujson #type: ignore
 import hashlib
 import os
 import sys
-from system.apps import apps as apps_saving
+from system.apps import install
+from shell.commands import cd, rm
 
 def hash_count(path):
     h = hashlib.sha256()
@@ -23,67 +24,31 @@ def hash_count(path):
 
 
 def apps(command, app):
-    if command == "update":
+    if command == "install":
         manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
         data = manifest.json()
-        try:
-            os.stat(f"/apps/{app}.py")
-            exist = True
-        except:
-            exist = False
-        if exist:
-            if hash_count(f"/apps/{app}.py") != data[app]:
-                print(f"Updating \033[32m{app}\033[0m")
-                get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
-                data = get_file.text
-                with open(f"/apps/{app}.py", "w") as f:
-                    f.write(data)
-                get_file.close()
-            else:
-                print("App already updated")
+    try:
+        with open("/conf/apps.conf") as f:
+            conf = ujson.load(f)
+        exist = conf[app]
+    except:
+        exist = False
+    if f"{app}.pcs" in data:
+        if exist != data[f"{app}.pcs"]:
+            cd()
+            print(f"Installing \033[32m{app}\033[0m")
+            get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.pcs")
+            data = get_file.text
+            with open(f"/{app}.pcs", "w") as f:
+                f.write(data)
+            get_file.close()
+            install(app)
+            rm(f"{app}.pcs")
         else:
-            print(f"App {app} not installed.")
-        manifest.close()
+            print("Already the newest version.")
 
-    elif command == "install":
-        manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
-        data = manifest.json()
-        if app in data:
-            try:
-                os.stat(f"/apps/{app}.py")
-                exist = True
-            except:
-                exist = False
-            if exist:
-                if hash_count(f"/apps/{app}.py") == data[app]:
-                    print(f"App \033[32m{app}\033[0m already installed and updated")
-                else:
-                    print(f"Updating \033[32m{app}\033[0m")
-                    get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
-                    data = get_file.text
-                    with open(f"/apps/{app}.py", "w") as f:
-                        f.write(data)
-                    get_file.close()
-            else:
-                print(f"Installing \033[32m{app}\033[0m")
-                get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.py")
-                data = get_file.text
-                with open(f"/apps/{app}.py", "w") as f:
-                    f.write(data)
-                get_file.close()
-                sys.path.append("/apps")
-
-                module = __import__(app)
-                info = module.install()
-
-                data = {
-                    info["name"]: {
-                        "Version": info["version"],
-                        "Autor": info["autor"]
-                    }
-                }
-                apps_saving.save(data)
-        manifest.close()
+    else:
+        print("App not exist")
 
 def update():
     update = []

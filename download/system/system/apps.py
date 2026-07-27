@@ -1,9 +1,25 @@
+# TODO:
+# - recognision for same versions
+
 import json
 import os
-from shell.commands import touch, rm, mv
+from shell.commands import touch, cd
 from kernel.colors import colors
 from kernel.debug import debug
+from system.pcs import pcs
+import hashlib
 
+def sha256_file(path):
+    h = hashlib.sha256()
+
+    with open(path, "rb") as f:
+        while True:
+            data = f.read(512)
+            if not data:
+                break
+            h.update(data)
+
+    return "".join("{:02x}".format(b) for b in h.digest())
 
 class Apps:
 
@@ -29,10 +45,13 @@ class Apps:
             args = [args]
 
         try:
-            module_name = "apps." + app
+            module_name = "apps." + app + ".main"
+
             mod = __import__(module_name)
+
             for part in module_name.split(".")[1:]:
                 mod = getattr(mod, part)
+
         except Exception as e:
             print("Error loading app:", e)
             debug.error("Error loading app", str(e))
@@ -50,45 +69,35 @@ apps = Apps()
 
 def install(app):
     try:
-        module = __import__(app)
-        info = module.install()
-        data = {
-            info["name"]: {
-                "Version": info["version"],
-                "Autor": info["autor"]
-            }
-        }
+        file_hash = sha256_file(f"{app}.pcs")
+        try:
+            with open("/conf/apps.conf", "r") as f:
+                data = json.load(f)
+        except:
+            data = {}
 
-        saved = apps.load()
-        exists = app in saved
-
-        if exists:
-            old_v = float(saved[app]["Version"])
-            new_v = float(data[app]["Version"])
-
-            if old_v < new_v:
-                print("Are you sure you want to upgrade \033[32m" + app +
-                      " \033[0mfrom version \033[31m" + saved[app]["Version"] +
-                      "\033[0mto version \033[34m" + data[app]["Version"] + "\033[0m ?")
-            elif old_v == new_v:
-                print("App already newest version")
+        if app in data:
+            if data[app]["Hash"] == file_hash:
+                print("Already the newest version")
                 return
             else:
-                print("Are you sure you want to downgrade \033[32m" + app +
-                      " \033[0mfrom version \033[31m" + saved[app]["Version"] +
-                      "\033[0mto version \033[34m" + data[app]["Version"] + "\033[0m ?")
+                print("Updating")
         else:
-            print("Are you sure you want to install \033[32m" + app + " \033[0m?")
-        question = input("Type [\033[32my\033[0m/\033[31mn \033[0m] >> ")
+            print("Installing")
 
-        if question == "y":
-            apps.save(data)
-            app_full = app + ".py"
-            if exists:
-                rm("/apps/" + app_full)
-            mv(app_full, "/apps/" + app_full)
+        pcs(f"{app}.pcs")
+
+        with open(f"/apps/{app}/manifest.json", "r") as f:
+            info = json.load(f)
+
+        data[app] = {
+            "Version": info["version"],
+            "Autor": info["autor"],
+            "Hash": file_hash
+        }
+
+        apps.save(data)
 
     except Exception as e:
-        colors.red("Sorry something went wrong")
-        print(e)
-        debug.error("Installing", str(e))
+        print("Something went wrong:", e)
+        debug.error("Error installing app", str(e))
