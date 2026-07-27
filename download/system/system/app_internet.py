@@ -24,31 +24,51 @@ def hash_count(path):
 
 
 def apps(command, app):
-    if command == "install":
-        manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
-        data = manifest.json()
+    if command != "install":
+        return
+
+    manifest = urequests.get(
+        "https://picoos.dev/download/apps/manifest.json"
+    )
+
+    if manifest.status_code != 200:
+        print("Manifest download failed")
+        return
+
+    data = manifest.json()
+    manifest.close()
     try:
         with open("/conf/apps.conf") as f:
             conf = ujson.load(f)
-        exist = conf[app]
-    except:
-        exist = False
-    if f"{app}.pcs" in data:
-        if exist != data[f"{app}.pcs"]:
-            cd()
-            print(f"Installing \033[32m{app}\033[0m")
-            get_file = urequests.get(f"https://picoos.dev/download/apps/{app}.pcs")
-            data = get_file.text
-            with open(f"/{app}.pcs", "w") as f:
-                f.write(data)
-            get_file.close()
-            install(app)
-            rm(f"{app}.pcs")
-        else:
-            print("Already the newest version.")
 
-    else:
+        exist = conf.get(app, False)
+    except Exception:
+        exist = False
+
+    filename = f"{app}.pcs"
+
+    if filename not in data:
         print("App not exist")
+        return
+
+    if exist == data[filename]:
+        print("Already the newest version.")
+        return
+
+    print(f"Installing \033[32m{app}\033[0m")
+    get_file = urequests.get(
+        f"https://picoos.dev/download/apps/{filename}"
+    )
+
+    if get_file.status_code == 200:
+        with open(f"/{filename}", "wb") as f:
+            f.write(get_file.content)
+
+        get_file.close()
+        install(app)
+        rm(filename)
+    else:
+        print("Download failed")
 
 def update():
     update = []
