@@ -1,6 +1,3 @@
-# FIXME
-# - Installing error
-
 import urequests #type: ignore
 from system.apps import install
 import ujson #type: ignore
@@ -61,8 +58,13 @@ def apps(command, app):
     )
 
     if get_file.status_code == 200:
-        with open(f"/{filename}", "wb") as f:
-            f.write(get_file.content)
+        with open(f"/{app}.pcs", "wb") as f:
+            while True:
+                chunk = get_file.raw.read(512)
+                if not chunk:
+                    break
+
+                f.write(chunk)
 
         get_file.close()
         install(app)

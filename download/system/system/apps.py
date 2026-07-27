@@ -1,6 +1,3 @@
-# TODO:
-# - recognision for same versions
-
 import json
 import os
 from shell.commands import touch, cd
