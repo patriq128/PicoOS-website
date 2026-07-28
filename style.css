@@ -412,6 +412,60 @@ section{
 
 .note strong{ color: var(--text-dim); }
 
+#apps_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#apps_table th{
+    text-align: left;
+    color: var(--accent-dim);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 700;
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+#apps_table td{
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px dashed var(--border-soft);
+}
+
+#apps_table tr:last-child td{
+    border-bottom: none;
+}
+
+#apps_table td:last-child{
+    text-align: right;
+}
+
+#apps_table .apps_status_row td{
+    color: var(--text-dim);
+    text-align: center;
+    border-bottom: none;
+}
+
+#apps_table a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent-dim);
+    border-radius: var(--radius);
+    padding: 5px 12px;
+    font-size: 12.5px;
+    transition: .2s;
+}
+
+#apps_table a:hover{
+    background: var(--accent);
+    color: #0a0a0a;
+    box-shadow: 0 0 14px var(--accent-glow);
+}
+
 
 .panel{
     opacity: 0;
