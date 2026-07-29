@@ -22,7 +22,6 @@ def sha256_file(path):
 
 
 class Apps:
-
     def load(self):
         try:
             with open("/conf/apps.conf", "r") as f:
@@ -65,12 +64,14 @@ class Apps:
         except Exception as e:
             print("Error running app:", e)
             debug.error("Error running app", str(e))
+
 apps = Apps()
 
 def install(app):
     if app.endswith(".pcs"):
         app = app[:-4]
     filename = f"{app}.pcs"
+    
     try:
         file_hash = sha256_file(filename)
         try:
@@ -192,5 +193,5 @@ class Apps_manager:
                 self.install(arg1)
             else:
                 print("Missing app name")
-                
+
 apps_manager = Apps_manager()
