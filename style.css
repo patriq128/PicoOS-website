@@ -443,6 +443,13 @@ section{
     text-align: right;
 }
 
+#apps_table td.apps_desc{
+    color: var(--text-dim);
+    font-size: 13px;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
 #apps_table .apps_status_row td{
     color: var(--text-dim);
     text-align: center;

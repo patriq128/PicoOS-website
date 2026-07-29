@@ -1,3 +1,6 @@
 {
-    "image.pcs": "cb6309ee37546f2f4e60cfb068e1670d90493e1933488645ca9293139ce45f19"
+    "image.pcs": {
+        "hash": "cb6309ee37546f2f4e60cfb068e1670d90493e1933488645ca9293139ce45f19",
+        "description": "Image viewer supporting the optimized .pxi image format"
+    }
 }

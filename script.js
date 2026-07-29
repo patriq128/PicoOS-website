@@ -67,7 +67,11 @@ if (appsTable) {
                 let row = document.createElement("tr");
 
                 let name = document.createElement("td");
-                name.textContent = app;
+                name.textContent = app.endsWith(".pcs") ? app.slice(0, -4) : app;
+
+                let description = document.createElement("td");
+                description.className = "apps_desc";
+                description.textContent = data[app].description;
 
                 let download = document.createElement("td");
 
@@ -79,6 +83,7 @@ if (appsTable) {
                 download.appendChild(button);
 
                 row.appendChild(name);
+                row.appendChild(description)
                 row.appendChild(download);
 
                 appsTable.appendChild(row);
