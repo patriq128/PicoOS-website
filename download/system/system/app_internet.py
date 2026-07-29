@@ -1,3 +1,6 @@
+# TODO:
+# - Join this into apps.py
+
 import urequests #type: ignore
 from system.apps import install
 import ujson #type: ignore
@@ -24,9 +27,7 @@ def apps(command, app):
     if command != "install":
         return
 
-    manifest = urequests.get(
-        "https://picoos.dev/download/apps/manifest.json"
-    )
+    manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
 
     if manifest.status_code != 200:
         print("Manifest download failed")

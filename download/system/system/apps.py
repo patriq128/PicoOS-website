@@ -98,3 +98,11 @@ def install(app):
     except Exception as e:
         print("Something went wrong:", e)
         debug.error("Error installing app", str(e))
+
+class Apps_manager:
+    def main(self, arg, arg1=None):
+        if arg == "list":
+            data = apps.load()
+            print("Installed apps:")
+            for i in data.keys():
+                print(i)
