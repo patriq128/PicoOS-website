@@ -1,10 +1,11 @@
 import json
 import os
-from shell.commands import touch, cd
+from shell.commands import touch, cd, rm
 from kernel.colors import colors
 from kernel.debug import debug
 from system.pcs import pcs
 import hashlib
+import sys
 
 def sha256_file(path):
     h = hashlib.sha256()
@@ -99,10 +100,90 @@ def install(app):
         print("Something went wrong:", e)
         debug.error("Error installing app", str(e))
 
+def online_install(app):
+    import urequests #type: ignore
+    import ujson #type: ignore
+    manifest = urequests.get("https://picoos.dev/download/apps/manifest.json")
+
+    if manifest.status_code != 200:
+        print("Manifest download failed")
+        return
+
+    data = manifest.json()
+    manifest.close()
+    try:
+        with open("/conf/apps.conf") as f:
+            conf = ujson.load(f)
+
+        exist = conf.get(app, False)
+    except Exception:
+        exist = False
+
+    filename = f"{app}.pcs"
+
+    if filename not in data:
+        print("App not exist")
+        return
+
+    if exist == data[filename]:
+        print("Already the newest version.")
+        return
+
+    print(f"Installing \033[32m{app}\033[0m")
+    get_file = urequests.get(
+        f"https://picoos.dev/download/apps/{filename}"
+    )
+
+    if get_file.status_code == 200:
+        with open(f"/{app}.pcs", "wb") as f:
+            while True:
+                chunk = get_file.raw.read(512)
+                if not chunk:
+                    break
+
+                f.write(chunk)
+
+        get_file.close()
+        install(app)
+        rm(filename)
+    else:
+        print("Download failed")
+
 class Apps_manager:
+    def install(self, read):
+        result = sys.implementation._machine
+        if "Pico W" in result:
+            W = True
+        else:
+            W = False
+        if not read.endswitch(".pcs"):
+            if W:
+                import urequests #type: ignore
+                manifest = urequests.get("https://picoos.dev/download/system/manifest.json")
+                data = manifest.json()
+                if read in data.keys():
+                    online_install(read)
+                else:
+                    try:
+                        os.stat(f"{read}.pcs")
+                    except:
+                        print("The app is not existing")
+            else:
+                try:
+                    os.stat(f"{read}.pcs")
+                except:
+                    print("The app is not existing")
+        else:
+             install(read)
+        
+
     def main(self, arg, arg1=None):
         if arg == "list":
             data = apps.load()
             print("Installed apps:")
             for i in data.keys():
                 print(i)
+        if arg == "install":
+            self.install(arg1)
+
+apps_manager = Apps_manager()
