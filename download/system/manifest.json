@@ -2,9 +2,9 @@
     "main.py": "d2fcfe245fcbf11e1b1df901a1403d0b8fe8a5e58a8290f9fe62fab1743ee927",
     "system/trun.py": "7898f8b377b5a9117fb7bb0b809fac4609a6df4b2f0af1ae194d689a306b0bab",
     "system/make_directory.py": "5df54379d9ac206707b81b0152c55ab0a833eb6c6576803965cd54bed995266d",
-    "system/app_internet.py": "783fcbf71217e635548deea04011984960dbf07c60ac5647c7fea5e42c9ca1ba",
     "system/apps.py": "dbea545fcac6933496aa1ad30f7c9e53e6ad3cd91411120b7efae140c03ed0f2",
     "system/pcs.py": "98604479bf341dca08532524bd479fbed45b5b550acce4314ddb9eabd440ccfd",
+    "system/system_update.py": "cac253a44764c1cdab0e1f15b0d29d47c8d2e343598c22d78fdeca07ea1fd945",
     "drivers/wifi.py": "46a72f353f5ec3f562baaa48c4baee530ad4cf2025fb1453f4d7366b456444f7",
     "drivers/sdcard.py": "55cac2610064374d2d4feb219727b26ad0117797dc3b62b5ca1d2f8977fdebe8",
     "drivers/led.py": "51c5ad35c479ad83a965281d736eee31c3df5275cce4cc37c52bcf20ab705f6d",
@@ -15,5 +15,5 @@
     "kernel/system.py": "94aa71d8bf825b8ed708c5ee4da20006ea314a4b7af8ccca19e6ff6863e6d228",
     "kernel/config.py": "10467814733d2b33242223407c494a539c0452680a078453294c549315f778bd",
     "shell/commands.py": "fe08ffcfcbd3718d07cfaf876006d81617c33e757d89885597ade26de5cd1887",
-    "shell/terminal.py": "cee9c87d170ddc907cce26375272c867730f6f9bf4d51fe9a00c8f67babfa449"
+    "shell/terminal.py": "bf97b889b6c80386322d5b9c451d41417bad1bb3aa82d11fb10d8ea8f47a5fad"
 }

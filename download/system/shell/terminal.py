@@ -21,7 +21,7 @@ else:
     W = False
 if W:
     from drivers.wifi import wifi_driver, ping
-    from system.app_internet import update
+    from system.system_update import update
 def command_list():
     if W:
         return {
