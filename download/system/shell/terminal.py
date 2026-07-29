@@ -11,7 +11,7 @@ from kernel.colors import colors
 from shell.commands import echo, hello, clean, exit, cd, python, mkdir, ls, rm, cat, touch, mv, python, restart, pwd
 from drivers.sdcard_driver import mount, unmount
 from kernel.config import enable, disable
-from system.apps import install
+from system.apps import apps_manager
 from kernel.system import system
 
 result = sys.implementation._machine
@@ -21,7 +21,6 @@ else:
     W = False
 if W:
     from drivers.wifi import wifi_driver, ping
-    from system.app_internet import apps as apps_internet
     from system.app_internet import update
 def command_list():
     if W:
@@ -41,14 +40,13 @@ def command_list():
             "mv": mv,
             "mount": mount,
             "unmount": unmount,
-            "install": install,
             "disable": disable,
             "enable": enable,
             "sysinfo": system,
             "run": python,
             "wifi": wifi_driver,
             "ping": ping,
-            "app": apps_internet,
+            "app": apps_manager,
             "update": update,
             "restart": restart
         }
@@ -69,12 +67,12 @@ def command_list():
             "mv": mv,
             "mount": mount,
             "unmount": unmount,
-            "install": install,
             "disable": disable,
             "enable": enable,
             "sysinfo": system,
             "run": python,
-            "restart": restart
+            "restart": restart,
+            "app": apps_manager
         }
 
 def terminal():
