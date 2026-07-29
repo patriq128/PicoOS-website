@@ -46,7 +46,7 @@ def command_list():
             "run": python,
             "wifi": wifi_driver,
             "ping": ping,
-            "app": apps_manager,
+            "app": apps_manager.main,
             "update": update,
             "restart": restart
         }
@@ -72,7 +72,7 @@ def command_list():
             "sysinfo": system,
             "run": python,
             "restart": restart,
-            "app": apps_manager
+            "app": apps_manager.main
         }
 
 def terminal():

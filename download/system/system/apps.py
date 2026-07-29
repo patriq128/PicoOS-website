@@ -98,6 +98,7 @@ def install(app):
     except Exception as e:
         print("Something went wrong:", e)
         debug.error("Error installing app", str(e))
+
 def online_install(app):
     import urequests   # type: ignore
     import ujson       # type: ignore
@@ -151,6 +152,7 @@ def online_install(app):
     except Exception as e:
         print("Online install error:", e)
         debug.error("Online install failed", str(e))
+
 class Apps_manager:
     def install(self, read):
         machine = sys.implementation._machine
@@ -190,4 +192,5 @@ class Apps_manager:
                 self.install(arg1)
             else:
                 print("Missing app name")
+                
 apps_manager = Apps_manager()
