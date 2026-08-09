@@ -73,6 +73,10 @@ if (appsTable) {
                 description.className = "apps_desc";
                 description.textContent = data[app].description;
 
+                let author = document.createElement("td");
+                author.className = "apps_desc";
+                author.textContent = data[app].author;
+
                 let download = document.createElement("td");
 
                 let button = document.createElement("a");
@@ -83,7 +87,8 @@ if (appsTable) {
                 download.appendChild(button);
 
                 row.appendChild(name);
-                row.appendChild(description)
+                row.appendChild(description);
+                row.appendChild(author);
                 row.appendChild(download);
 
                 appsTable.appendChild(row);

@@ -417,22 +417,30 @@ section{
     border-collapse: collapse;
 }
 
-#apps_table th{
-    text-align: left;
-    color: var(--accent-dim);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-weight: 700;
-    padding: 0 0 10px;
-    border-bottom: 1px solid var(--border-soft);
-}
-
+#apps_table th,
 #apps_table td{
-    padding: 10px 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 20px;
+    padding-left: 20px;
     font-size: 14px;
     color: var(--text);
-    border-bottom: 1px dashed var(--border-soft);
+    border-bottom: 1px solid rgba(42, 46, 43, 0.4);
+}
+
+/* | medzi stĺpcami */
+#apps_table td:not(:last-child){
+    border-right: 1px solid rgba(42, 46, 43, 0.4);
+}
+
+#apps_table th:first-child,
+#apps_table td:first-child{
+    padding-left: 0;
+}
+
+#apps_table th:last-child,
+#apps_table td:last-child{
+    padding-right: 0;
 }
 
 #apps_table tr:last-child td{
