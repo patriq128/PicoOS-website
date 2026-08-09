@@ -1,10 +1,12 @@
 {
     "nano.pcs": {
         "hash": "7ac308aaa72998ef7fb9f14dfe6b57a189e214190a2a4b093e612029efc89205",
-        "description": "Lightweight text editor supporting file creation and editing"
+        "description": "Lightweight text editor supporting file creation and editing",
+        "author": "ZiDi"
     },
     "image.pcs": {
         "hash": "cb6309ee37546f2f4e60cfb068e1670d90493e1933488645ca9293139ce45f19",
-        "description": "Image viewer supporting the optimized .pxi image format"
+        "description": "Image viewer supporting the optimized .pxi image format",
+        "author": "ZiDi"
     }
 }
