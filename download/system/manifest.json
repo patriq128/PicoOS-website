@@ -17,5 +17,5 @@
     "kernel/system.py": "94aa71d8bf825b8ed708c5ee4da20006ea314a4b7af8ccca19e6ff6863e6d228",
     "kernel/config.py": "10467814733d2b33242223407c494a539c0452680a078453294c549315f778bd",
     "shell/commands.py": "fe08ffcfcbd3718d07cfaf876006d81617c33e757d89885597ade26de5cd1887",
-    "shell/terminal.py": "5d209dbc26efedf9e244069247398dbf710f8b7c1da94b81a0cbd18658c7c68e"
+    "shell/terminal.py": "d883cfb5e38afdc5ab3b698da2944ea8f75e67fbe27ba6a6f28c7e5660ea7d78"
 }
