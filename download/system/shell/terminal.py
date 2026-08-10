@@ -2,7 +2,7 @@ import os
 import sys
 from system.apps import apps
 from kernel.colors import colors
-from shell.commands import echo, hello, clean, exit, cd, python, mkdir, ls, rm, cat, touch, mv, python, restart, pwd
+from shell.commands import echo, hello, clean, exit, cd, python, mkdir, ls, rm, cat, touch, mv, python, pwd
 from drivers.sdcard_driver import mount, unmount
 from kernel.config import enable, disable
 from system.apps import apps_manager
@@ -42,7 +42,6 @@ def command_list():
             "ping": ping,
             "app": apps_manager.main,
             "update": update,
-            "restart": restart
         }
     else:
         return {
@@ -65,7 +64,6 @@ def command_list():
             "enable": enable,
             "sysinfo": system,
             "run": python,
-            "restart": restart,
             "app": apps_manager.main
         }
 
