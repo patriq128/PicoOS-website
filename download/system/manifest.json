@@ -16,6 +16,6 @@
     "kernel/colors.py": "450aa1b7f37407257c2b11fc986cf2d44bd372df948b47b56fa28b58162140bb",
     "kernel/system.py": "94aa71d8bf825b8ed708c5ee4da20006ea314a4b7af8ccca19e6ff6863e6d228",
     "kernel/config.py": "10467814733d2b33242223407c494a539c0452680a078453294c549315f778bd",
-    "shell/commands.py": "155a9c648bd67daacdbb88d8be389b1495aad4e3199a9f4a984934cbe8b3b992",
-    "shell/terminal.py": "60f12f64420829ffd9727463074bddbd246e5d5117d48bfedd38a0246e5583de"
+    "shell/commands.py": "6175cddde52df6e5cf84c6dce87aab5b77b34470e03876700bfe75fbf28f2be9",
+    "shell/terminal.py": "311c100f840bde2e60b0b702e14e03bb6c88865b89a42c4628da7db9bd3c6401"
 }
