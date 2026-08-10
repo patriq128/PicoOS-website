@@ -7,7 +7,7 @@ from drivers.sdcard_driver import mount, unmount
 from kernel.config import enable, disable
 from system.apps import apps_manager
 from kernel.system import system
-
+from kernel.debug import debug
 result = sys.implementation._machine
 if "Pico W" in result:
     W = True
@@ -91,4 +91,7 @@ def terminal():
                 print("Error:", e)
         except KeyboardInterrupt:
             print("^C")
+            continue
+        except Exception as e:
+            debug.error("Termianl Crash", str(e))
             continue
