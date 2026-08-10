@@ -90,4 +90,5 @@ def terminal():
             except Exception as e:
                 print("Error:", e)
         except KeyboardInterrupt:
+            print()
             continue
