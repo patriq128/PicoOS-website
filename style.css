@@ -256,13 +256,12 @@ section{
     max-width: 560px;
 }
 
-.ascii{
-    font-family: var(--mono);
-    line-height: 1;
-    color: var(--accent);
-    font-size: clamp(0.32rem, 1.5vw, 0.8rem);
-    overflow-x: auto;
+.ascii {
+    display: block;
+    width: 500px;
     max-width: 100%;
+    height: auto;
+    margin: 0 auto;
     opacity: .9;
 }
 
