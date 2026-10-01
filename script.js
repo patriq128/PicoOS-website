@@ -1,101 +1,21 @@
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav_links");
+var table = document.getElementById("apps_table");
 
-if (hamburger && navLinks) {
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+fetch("/download/apps/manifest.json")
+    .then(function (res) {
+        return res.json();
+    })
+    .then(function (data) {
+        table.deleteRow(1);
+
+        for (var file in data) {
+            var row = table.insertRow();
+            row.insertCell().textContent = file.replace(".pcs", "");
+            row.insertCell().textContent = data[file].description;
+            row.insertCell().textContent = data[file].author;
+            row.insertCell().innerHTML = '<a href="/download/apps/' + file + '" download>download</a>';
+        }
+    })
+    .catch(function (err) {
+        console.log(err);
+        table.rows[1].cells[0].textContent = "could not load apps";
     });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => navLinks.classList.remove("active"));
-    });
-}
-
-const panels = document.querySelectorAll(".panel");
-
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.15 }
-    );
-
-    panels.forEach((panel) => observer.observe(panel));
-} else {
-    panels.forEach((panel) => panel.classList.add("visible"));
-}
-
-const appsTable = document.querySelector("#apps_table tbody");
-
-function setAppsStatus(message) {
-    if (!appsTable) return;
-    appsTable.innerHTML = "";
-    const row = document.createElement("tr");
-    row.className = "apps_status_row";
-    const cell = document.createElement("td");
-    cell.colSpan = 2;
-    cell.textContent = message;
-    row.appendChild(cell);
-    appsTable.appendChild(row);
-}
-
-if (appsTable) {
-    fetch("/download/apps/manifest.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`manifest request failed: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const apps = Object.keys(data);
-
-            if (apps.length === 0) {
-                setAppsStatus("no apps available yet");
-                return;
-            }
-
-            appsTable.innerHTML = "";
-
-            apps.forEach(app => {
-                let row = document.createElement("tr");
-
-                let name = document.createElement("td");
-                name.textContent = app.endsWith(".pcs") ? app.slice(0, -4) : app;
-
-                let description = document.createElement("td");
-                description.className = "apps_desc";
-                description.textContent = data[app].description;
-
-                let author = document.createElement("td");
-                author.className = "apps_desc";
-                author.textContent = data[app].author;
-
-                let download = document.createElement("td");
-
-                let button = document.createElement("a");
-                button.textContent = "download";
-                button.href = "/download/apps/" + app;
-                button.download = app;
-
-                download.appendChild(button);
-
-                row.appendChild(name);
-                row.appendChild(description);
-                row.appendChild(author);
-                row.appendChild(download);
-
-                appsTable.appendChild(row);
-            });
-        })
-        .catch(error => {
-            console.error("Failed to load apps:", error);
-            setAppsStatus("couldn't load apps — try again later");
-        });
-}
